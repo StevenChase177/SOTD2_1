@@ -4,29 +4,44 @@
         <meta charset="UTF-8">
         <title> SOTF week 2 assigment 1</title>
         <script>
-
+            function submitForm(event){
+                // prevents the form from submitting and refreshing the page 
+                event.preventDefault()
+                // uses the input tags value to fill the empty p tags with text. 
+                document.getElementById("fullname_p").innerText = ` full name: ${document.getElementById("fname").value} ${document.getElementById("lastname").value}`
+                document.getElementById("eadress_p").innerText = `email: ${document.getElementById("eadress").value}`
+                document.getElementById("pword_p").innerText = `password: ${document.getElementById("pword").value}`
+            }
         </script>
     </head>
     <body>
         <p>Script of the day week 2, number 1 login form</p>
-        <form>
+
+        <!-- created an html form -->
+        <form onsubmit="submitForm(event)">
+            <!-- textbox for users to enter first name -->
            <label for="fname"> first name </label>
            <input id="fname" type="text">
            <br>
-           <label for="lname"> last name </label>
-           <input id="lname "type="text">
+           <!-- textbox for users to enter last name -->
+           <label for="lastname"> last name </label>
+           <input id="lastname"type="text">
            <br>
+           <!-- textbox for users to enter email address -->
            <label for="eadress"> email adress </label>
            <input id="eadress" type="text">
            <br>
+           <!-- textbox for users to enter password -->
            <label for="pword" for="fname"> password</label>
-           <input id="pword" type="text">
+           <input id="pword" type="password">
            <br>
             <input type="submit"> 
         </form>
+
+        <!-- empty p tags will be filled when the user submits the form -->
         <p> Customer Data</p>
         <p id="fullname_p"></p>
-        <p id="lname_p"> </p>
+        <p id="eadress_p"> </p>
         <p id="pword_p"></p>
     </body>
 </html>
